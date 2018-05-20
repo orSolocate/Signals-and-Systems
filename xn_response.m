@@ -1,3 +1,6 @@
+%Load h2
+load('LPF.mat')
+
 % X[n] frequancy response
 n=-100:1:100;
 x=2*cos((1/10)*pi*n).*cos((3/10)*pi*n);
@@ -14,3 +17,5 @@ ax.YLim = [0 100];
 ax.XTick = 0:.05:2;
 xlabel('Normalized Frequency (\times\pi rad/sample)')
 ylabel('Magnitude')
+
+
