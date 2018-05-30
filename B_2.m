@@ -1,19 +1,20 @@
-% X[n] frequancy response
-n=-40:1:39;
-x=2*cos((1/10)*pi*n).*cos((3/10)*pi*n);
-figure
-subplot(2,1,1)
-plot(n,abs(x))
-xlabel('n [discrete time]');
-ylabel('x[n]');
+import functions.*
 
+N=10000
+x=create_x(N)
+plot_x(x)
+
+
+function x=create_x(N)
+n=-N:1:N;
+x=2*cos((1/10)*pi*n).*cos((3/10)*pi*n);
+end
+
+function plot_x(x)
 %DTFT of x[n]
-subplot(2,1,2)
-N=80
-w = 2*pi * (0:(N-1)) / N;
-w2 = fftshift(w);
-w3 = unwrap(w2 - 2*pi);
-X=fft(x);
-plot(w3/pi,fftshift(abs(X)))
-xlabel('w [rad]');
-ylabel('|X(e^jw)|');
+w =linspace(-pi,pi,20001);
+X=fft(x,20001);
+plot(w/pi,abs(fftshift(X)))
+xlabel('w/pi');
+ylabel('| X(e^j^w) |');
+end

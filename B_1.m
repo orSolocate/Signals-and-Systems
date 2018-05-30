@@ -1,34 +1,36 @@
 %Load h2
 load('LPF.mat')
 
+w=linspace(-pi,pi,20001);
+
 %Plot h2 frequancy response
-N=80;
-w = 2*pi * (0:(N-1)) / N;
-w2 = fftshift(w);
-w3 = unwrap(w2 - 2*pi);
-h_2=fft(h2);
+h_2=fft(h2,20001);
 subplot(4,1,1)
-plot(w3/pi,fftshift(abs(h_2)))
+plot(w/pi,abs(fftshift(h_2)))
+title('H2 frequancy response');
 xlabel('w/pi');
-ylabel('|h2(e^jw)|');
+ylabel('| H2(e^j^w) |');
 
 %Plot h3 frequancy response
-h_3=abs(fft(h3));
+h_3=fft(h3,20001);
 subplot(4,1,2)
-plot(w3/pi,fftshift(abs(h_3)))
+plot(w/pi,abs(fftshift(h_3)))
+title('H3 frequancy response');
 xlabel('w/pi');
-ylabel('|h3(e^jw)|');
+ylabel('| H3(e^j^w) |');
 
 %Plot h4 frequancy response
-h_4=abs(fft(h4));
+h_4=fft(h4,20001);
 subplot(4,1,3)
-plot(w3/pi,fftshift(abs(h_4)))
+plot(w/pi,abs(fftshift(h_4)))
+title('H4 frequancy response');
 xlabel('w/pi');
-ylabel('|h4(e^jw)|');
+ylabel('| H4(e^j^w) |');
 
 %Plot h6 frequancy response
-h_6=abs(fft(h6));
+h_6=fft(h6,20001);
 subplot(4,1,4)
-plot(w3/pi,fftshift(abs(h_6)))
+plot(w/pi,abs(fftshift(h_6)))
+title('H6 frequancy response');
 xlabel('w/pi');
-ylabel('|h6(e^jw)|');
+ylabel('| H6(e^j^w) |');
