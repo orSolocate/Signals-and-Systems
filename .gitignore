@@ -1,1 +1,4 @@
-.idea
+*.doc
+*.docx
+*.db
+*.idea
